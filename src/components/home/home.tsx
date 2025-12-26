@@ -25,7 +25,7 @@ export function Home() {
     );
   };
   return (
-    <div className="bg-[#ececec] flex flex-col items-center justify-center">
+    <div className="bg-[#ececec] flex flex-col items-center justify-center py-2 gap-2">
       <Menu drinks={drinks} plusDrink={plusDrink} minusDrink={minusDrink} />
       <Bill drinks={drinks} />
     </div>

@@ -10,7 +10,7 @@ type Props = {
 
 export function Menu({ drinks, plusDrink, minusDrink }: Props) {
   return (
-    <div className="py-2">
+    <div className="flex flex-col gap-2">
       <Header />
       <div className="grid grid-cols-1 lg:grid-cols-5 w-full h-full px-5 gap-2">
         {drinks.map((drink) => {

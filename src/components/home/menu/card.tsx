@@ -3,8 +3,8 @@ import Button from "../../shared/button";
 
 type CardProps = {
   drink: DrinkType;
-  plusDrink: (id: number) => void;
-  minusDrink: (id: number) => void;
+  plusDrink?: (id: number) => void;
+  minusDrink?: (id: number) => void;
   cardType: CardType;
 };
 
@@ -25,17 +25,17 @@ export function Card({ drink, plusDrink, minusDrink, cardType }: CardProps) {
           <Button
             className="bg-[#ecc59a] text-black"
             childern="+"
-            onclick={() => plusDrink(drink.id)}
+            onclick={() => plusDrink?.(drink.id)}
           />
           <span className="bg-white">{drink.quantity}</span>
           <Button
             className="bg-[#ecc59a]"
             childern="-"
-            onclick={() => minusDrink(drink.id)}
+            onclick={() => minusDrink?.(drink.id)}
           />
         </div>
       ) : (
-        <div>Qty: {drink.quantity}</div>
+        <div className=" text-white text-[10px]">Qty: {drink.quantity}</div>
       )}
     </div>
   );
