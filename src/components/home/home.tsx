@@ -1,0 +1,33 @@
+import { initialDrinks } from "../../utils/list";
+import type { DrinkType } from "../../utils/types";
+import { Bill } from "./bill/bill";
+import { useState } from "react";
+import { Menu } from "./menu/menu";
+
+export function Home() {
+  const [drinks, setDrinks] = useState<Array<DrinkType>>(initialDrinks);
+
+  const plusDrink = (id: number) => {
+    setDrinks((prev) =>
+      prev.map((drink) =>
+        drink.id === id ? { ...drink, count: drink.quantity + 1 } : drink
+      )
+    );
+  };
+
+  const minusDrink = (id: number) => {
+    setDrinks((prev) =>
+      prev.map((drink) =>
+        drink.id === id && drink.quantity > 0
+          ? { ...drink, count: drink.quantity - 1 }
+          : drink
+      )
+    );
+  };
+  return (
+    <div className="bg-[#ececec] flex flex-col items-center justify-center">
+      <Menu drinks={drinks} plusDrink={plusDrink} minusDrink={minusDrink} />
+      <Bill drinks={drinks} />
+    </div>
+  );
+}
