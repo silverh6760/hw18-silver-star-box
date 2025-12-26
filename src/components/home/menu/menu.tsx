@@ -10,9 +10,9 @@ type Props = {
 
 export function Menu({ drinks, plusDrink, minusDrink }: Props) {
   return (
-    <div>
+    <div className="py-2">
       <Header />
-      <div className="grid grid-cols-1 lg:grid-cols-5 w-full h-full px-5">
+      <div className="grid grid-cols-1 lg:grid-cols-5 w-full h-full px-5 gap-2">
         {drinks.map((drink) => {
           return (
             <Card

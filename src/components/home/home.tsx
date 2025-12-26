@@ -10,7 +10,7 @@ export function Home() {
   const plusDrink = (id: number) => {
     setDrinks((prev) =>
       prev.map((drink) =>
-        drink.id === id ? { ...drink, count: drink.quantity + 1 } : drink
+        drink.id === id ? { ...drink, quantity: drink.quantity + 1 } : drink
       )
     );
   };
@@ -19,7 +19,7 @@ export function Home() {
     setDrinks((prev) =>
       prev.map((drink) =>
         drink.id === id && drink.quantity > 0
-          ? { ...drink, count: drink.quantity - 1 }
+          ? { ...drink, quantity: drink.quantity - 1 }
           : drink
       )
     );

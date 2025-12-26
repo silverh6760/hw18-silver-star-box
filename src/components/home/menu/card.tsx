@@ -12,16 +12,18 @@ export function Card({ drink, plusDrink, minusDrink, cardType }: CardProps) {
   return (
     <div
       key={drink.id}
-      className="bg-[#1e3932] flex flex-col gap-2 p-1 text-white"
+      className="bg-[#1e3932] flex flex-col gap-2 py-1 px-2 rounded-md"
     >
-      <img src={drink.img} width="30px" height="30px"></img>
-      <div>{drink.name}</div>
-      <div className="text-[#ecc59a]">{drink.price * drink.quantity}$</div>
+      <img src={drink.img} width="70px" height="30px"></img>
+      <div className="text-white text-[10px]">{drink.name}</div>
+      <div className="text-[#ecc59a]">
+        {cardType === "MENU" ? drink.price : drink.price * drink.quantity}$
+      </div>
 
       {cardType === "MENU" ? (
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           <Button
-            className="bg-[#ecc59a]"
+            className="bg-[#ecc59a] text-black"
             childern="+"
             onclick={() => plusDrink(drink.id)}
           />
